@@ -1,27 +1,30 @@
 {
-    "include": ["src"],
-    "compilerOptions": {
-        "target": "esnext",
-        "module": "Node16",
-        "types": ["@cloudflare/workers-types"],
-        "moduleResolution": "Node16",
-        "strict": true,
-        "esModuleInterop": true,
-        "forceConsistentCasingInFileNames": true,
-        "skipLibCheck": true,
-        "resolveJsonModule": true,
-        "isolatedModules": true,
-        "paths": {
-            "@xray/*": ["./src/cores/xray/*"],
-            "@sing-box/*": ["./src/cores/sing-box/*"],
-            "@clash/*": ["./src/cores/clash/*"],
-            "@utils": ["./src/cores/utils"],
-            "@handlers": ["./src/common/handlers"],
-            "@init": ["./src/common/init"],
-            "@common": ["./src/common/common"],
-            "@vless": ["./src/protocols/websocket/vless"],
-            "@trojan": ["./src/protocols/websocket/trojan"],
-            "@warp": ["./src/protocols/warp"]
-        }
-    }
+  "include": ["src"],
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "Node16",
+    "types": ["@cloudflare/workers-types"],
+    "moduleResolution": "Node16",
+    "baseUrl": "src",          // 保留！这是您路径别名工作的关键
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "paths": {
+      "@xray/*": ["cores/xray/*"],
+      "@sing-box/*": ["cores/sing-box/*"],
+      "@clash/*": ["cores/clash/*"],
+      "@utils": ["cores/utils"],
+      "@handlers": ["common/handlers"],
+      "@init": ["common/init"],
+      "@common": ["common/common"],
+      "@vless": ["protocols/websocket/vless"],
+      "@trojan": ["protocols/websocket/trojan"],
+      "@warp": ["protocols/warp"]
+    },
+    // 👇 关键：静默 baseUrl 弃用警告（TypeScript 5.x/6.x 允许此选项）
+    "ignoreDeprecations": "6.0"
+  }
 }
