@@ -2,9 +2,9 @@
     "include": ["src"],
     "compilerOptions": {
         "target": "esnext",
-        "module": "esnext",
+        "module": "Node16",
         "types": ["@cloudflare/workers-types"],
-        "moduleResolution": "node",
+        "moduleResolution": "Node16",
         "baseUrl": "src",
         "strict": true,
         "esModuleInterop": true,
@@ -23,6 +23,7 @@
             "@vless": ["protocols/websocket/vless"],
             "@trojan": ["protocols/websocket/trojan"],
             "@warp": ["protocols/warp"]
-        }
+        },
+        "ignoreDeprecations": "6.0"
     }
 }
